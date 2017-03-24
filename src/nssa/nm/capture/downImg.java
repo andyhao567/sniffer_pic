@@ -16,9 +16,9 @@ public class downImg {
      * */
 	public void getPageImg(String hImgURL, String sIP) {
 		StringBuffer sBuffer = new StringBuffer();
-		String picPath = "c:\\sniffer";
+		String picPath = "/home/ubuntu/sheepwall_prj/static/assets/images/wifiuserimgs";
         String srcIP = sIP;
-		File file = new File(picPath + "\\" +srcIP);
+		File file = new File(picPath + "/" +srcIP);
 		String reg = "\\w{1,}\\.(jpeg|jpg|gif|png)";
 		Pattern pattern = Pattern.compile(reg);
 		try{
@@ -36,7 +36,7 @@ public class downImg {
 			Matcher m = pattern.matcher(hImgURL);
 			if(m.find()){
 				String filename = m.group(0);
-				OutputStream oStream = new FileOutputStream(file.getPath() + "\\" + filename);
+				OutputStream oStream = new FileOutputStream(file.getPath() + "/" + filename);
 				while((len = iStream.read(bs)) != -1){
 					oStream.write(bs, 0, len);
 				}

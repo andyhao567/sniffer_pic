@@ -1,6 +1,6 @@
 package nssa.nm.capture;
 
-import java.awt.datatransfer.StringSelection;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.locks.Lock;
@@ -15,6 +15,9 @@ import java.util.logging.Logger;
 	
 	
         public static void main(String args[]){
+//        	System.getProperty("//usr///lib/x86_64-linux-gnu/");
+        	//System.loadLibrary("libpcap.so");
+        	
         	ClassicPcap cPcap = new ClassicPcap(requesturl, urlLock, mLogger);
         	cPcap.start();
         	

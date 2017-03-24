@@ -41,7 +41,7 @@ public class ClassicPcap extends Thread{
             System.out.printf("#%d: %s [%s]\n", i++, device.getName(), device.getDescription());
         }
 
-        PcapIf device = alldevs.get(0); 
+        PcapIf device = alldevs.get(4); 
         System.out.printf("\nChoosing '%s' on your behalf:\n", device.getDescription());
     
 
