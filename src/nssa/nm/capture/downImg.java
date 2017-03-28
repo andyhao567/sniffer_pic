@@ -19,37 +19,34 @@ public class downImg {
 		String picPath = "/home/ubuntu/sheepwall_prj/static/assets/images/wifiuserimgs";
         String srcIP = sIP;
 		File file = new File(picPath + "/" +srcIP);
-		String reg = "\\w{1,}\\.(jpeg|jpg|gif|png)";
+		String reg = "\\w{1,}\\.(jpeg|jpg)";
 		Pattern pattern = Pattern.compile(reg);
-		try{
-			URL url = new URL(hImgURL);
-			URLConnection conn = url.openConnection();
-			conn.setConnectTimeout(5*1000);
-			InputStream iStream = conn.getInputStream();
-			byte[] bs = new byte[10240];
-			int len;
-			
-			if(!file.exists()){
-				file.mkdirs();
-			}
-			
-			Matcher m = pattern.matcher(hImgURL);
-			if(m.find()){
+		Matcher m = pattern.matcher(hImgURL);
+		if(m.find()){
+			try{
 				String filename = m.group(0);
+				URL url = new URL(hImgURL);
+				URLConnection conn = url.openConnection();
+				conn.setConnectTimeout(5*1000);
+				InputStream iStream = conn.getInputStream();
+				byte[] bs = new byte[10240];
+				int len;
+				
+				if(!file.exists()){
+					file.mkdirs();
+				}					
 				OutputStream oStream = new FileOutputStream(file.getPath() + "/" + filename);
 				while((len = iStream.read(bs)) != -1){
 					oStream.write(bs, 0, len);
 				}
 				oStream.close();
 				iStream.close();
-			}else{
-				System.out.println("[downImg getPageImg Error] This url has not the file name");
+								
+			}catch (Exception e) {
+				e.printStackTrace();
 			}
-
-			
-		}catch (Exception e) {
-			e.printStackTrace();
 		}
+
 		
 	}
 
