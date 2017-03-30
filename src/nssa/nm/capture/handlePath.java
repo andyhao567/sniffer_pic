@@ -25,7 +25,7 @@ public class handlePath {
 		File file = new File(path);
 		List<String> myfileList = new ArrayList<String>();   //file list
 		List<String> deList = new ArrayList<String>();
-		Map fileMap = new HashMap();
+		Map<String, List<String>> fileMap = new HashMap();
 		
 		if (file.exists()) {
 			

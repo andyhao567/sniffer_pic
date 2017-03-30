@@ -84,7 +84,7 @@ public class PacketMatch {
             	if((reqUri != null)){
             		if((reqUri.endsWith(".jpg")) || reqUri.endsWith(".png")){
                         requestURL = "http://" + reqHost + reqUri;
-                        System.out.printf("[PacketMatch handleTcp Debug] the TCP-Packet http layer is: %s", requestURL + "\n");
+                        System.out.printf("[PacketMatch handleTcp Debug] The src.ip is: %s and image url is: %s \n", srcIP,requestURL);
                         downImg dImg = new downImg();
                         dImg.getPageImg(requestURL, srcIP);
             		}

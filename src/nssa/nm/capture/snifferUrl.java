@@ -20,8 +20,8 @@ import java.util.logging.Logger;
 	
         public static void main(String args[]){
         	
-        	long delay = 3*60*1000;
-        	long internal_time = 6*60*1000;
+        	long delay = 1*60*1000;
+        	long internal_time = 3*60*1000;
         	
         	ClassicPcap cPcap = new ClassicPcap(requesturl, urlLock, mLogger);
         	cPcap.start();
